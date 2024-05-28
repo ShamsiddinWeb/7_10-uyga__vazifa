@@ -1,0 +1,72 @@
+.hero {
+  top: 0;
+  padding-top: 258px;
+  // margin-bottom: 200px;
+  padding-bottom: 185px;
+  background-image: url("../../assets/img/heroBg.png");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  &__title {
+    font-size: 64px;
+    line-height: 96px;
+    color: rgb(255, 255, 255);
+    max-width: 500px;
+  }
+  &__card {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #fff;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 30px;
+    display: none;
+    &-span {
+      width: 50px;
+      height: 50px;
+      color: rgba(34, 50, 99, 1);
+
+      // padding: 10px;
+      padding-top: 15px;
+      background-color: #fff;
+      font-weight: 700;
+      border-radius: 10px;
+    }
+  }
+}
+@media only screen and (max-width: 547px) {
+  .hero {
+    background-image: none;
+    padding: 0;
+    &__start {
+      margin-top: 20px;
+      border-radius: 10px;
+      padding-top: 32px;
+      padding-left: 20px;
+      padding-bottom: 32px;
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url("../../assets/img/hero__bg.png");
+    }
+    &__title {
+      font-size: 34px;
+      line-height: 46px;
+      max-width: 250px;
+    }
+    &__card {
+      display: block;
+      display: flex;
+    }
+  }
+}
+@media only screen and (max-width: 350px) {
+  .hero{
+     &__title {
+      font-size: 22px;
+      line-height: 25px;
+      max-width: 200px;
+     }
+  }
+}

@@ -1,0 +1,100 @@
+.contact {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  &__start {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border: 2px solid rgb(201, 201, 201);
+  }
+  &__left {
+    background-color:  rgba(64, 191, 255, 1);
+    padding: 123px 200px 300px 86px;
+    color: #fff;
+    &-title {
+      margin-bottom: 56px;
+      font-size: 48px;
+    }
+    &-text {
+      margin-bottom: 40px;
+    }
+  }
+  &__right {
+    // padding-left: 60px;
+    width: 50%;
+    p {
+      margin-bottom: 7px;
+    }
+    &-input {
+      margin-bottom: 21px;
+      padding: 12px 20px;
+      width: 80%;
+      border: 2px solid rgb(201, 201, 201);
+    }
+    &-inp {
+      padding: 12px;
+      width: 80%;
+      border: 2px solid rgb(201, 201, 201);
+      padding-bottom: 230px;
+      align-items: start;
+      
+    }
+  }
+  &__btn {
+      width: 80%;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 10px;
+      background-color:  rgba(64, 191, 255, 1);
+      border: none;
+      color: #fff;
+  }
+}
+@media only screen and (max-width: 1080px) {
+  .contact {
+    &__left {
+      padding: 103px 100px 200px 56px;
+    }
+  }
+}
+@media only screen and (max-width: 800px) {
+  .contact {
+    &__left {
+      padding: 150px 50px;
+      &-title {
+        font-size: 25px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 650px) {
+  .contact {
+    padding: 20px;
+    &__left {
+      display: none;
+    }
+    &__right {
+      padding: 20px;
+      width: 100%;
+      &-inp {
+        padding-bottom: 150px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 400px) {
+  .contact {
+    &__right {
+      &-inp {
+        width: 100%;
+      }
+      &-input {
+        width: 100%;
+      }
+    }
+    &__btn {
+      width: 100%;
+    }
+  }
+}
