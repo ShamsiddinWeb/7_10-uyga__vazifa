@@ -9,8 +9,13 @@ import { IoSearch } from "react-icons/io5";
 import header__logo from "../../assets/icon/header__logo.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const [shrink, setShrink] = useState(false);
+  const [toogle, setToggle] = useState(false);
+  const [search, setSearch] = useState(false);
+  let wishlist = useSelector((state) => state.wishlist.value);
   let data = [
     {
       id: 1,
@@ -19,36 +24,36 @@ const Header = () => {
     },
     {
       id: 2,
-      title: "BAGS",
-      link: "/bags",
+      title: "WISHLIST",
+      link: "/wishlist",
     },
     {
       id: 3,
-      title: "SNEAKERS",
-      link: "/sneakers",
+      title: "CART",
+      link: "/cart",
     },
     {
       id: 4,
-      title: "BELT",
-      link: "/belt",
+      title: "CONTACT",
+      link: "/contact",
     },
     {
       id: 5,
-      title: "CONTACT",
-      link: "/contact",
+      title: "LOGIN",
+      link: "/login",
     },
   ];
   let dataItem = data?.map((e) => (
     <li key={e.id} className="header__end-list__item">
-      <Link onClick={() => setToggle(false)} href={e.link} className="header__end-list__link">
+      <Link
+        onClick={() => setToggle(false)}
+        href={e.link}
+        className="header__end-list__link"
+      >
         {e.title}
       </Link>
     </li>
   ));
-
-  const [shrink, setShrink] = useState(false);
-  const [toogle, setToggle] = useState(false);
-  const [search, setSearch] = useState(false);
 
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
@@ -84,11 +89,8 @@ const Header = () => {
                     <IoHomeOutline />
                     <p>Home</p>
                   </Link>
-                  <button
-                    className="header__start-card__group header__start-home"
-                  
-                  >
-                    <IoSearch  onClick={() => setSearch(!search)}/>
+                  <button className="header__start-card__group header__start-home">
+                    <IoSearch onClick={() => setSearch(!search)} />
                     <form className="header__start-card__form">
                       <input
                         className="header__start-card__inp"
@@ -99,12 +101,17 @@ const Header = () => {
                     </form>
                     <p onClick={() => setSearch(!search)}>Explore</p>
                   </button>
-                  <RiAdminLine className="header__start-admin" />
+                  <Link href={"/admin"}>
+                    <RiAdminLine className="header__start-admin" />
+                  </Link>
                   <Link
                     href={"/wishlist"}
                     className="header__start-card__group"
                   >
                     <CgHeart />
+                    <sup className="header__start-card-sup">
+                      {wishlist.length}
+                    </sup>
                     <p>Wishlist</p>
                   </Link>
                   <Link href={"/cart"} className="header__start-card__group">

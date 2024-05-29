@@ -1,7 +1,7 @@
 .hero {
   top: 0;
   padding-top: 258px;
-  // margin-bottom: 200px;
+  margin-bottom: 280px;
   padding-bottom: 185px;
   background-image: url("../../assets/img/heroBg.png");
   background-position: top;
@@ -33,6 +33,11 @@
       font-weight: 700;
       border-radius: 10px;
     }
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .hero {
+    margin-bottom: 50px;
   }
 }
 @media only screen and (max-width: 547px) {

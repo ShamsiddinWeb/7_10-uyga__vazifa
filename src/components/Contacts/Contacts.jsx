@@ -1,6 +1,7 @@
 "use client";
 import React, {useState} from "react";
 import "./Contacts.scss";
+import Link from "next/link";
 
 const BOT_TOKEN = "6708331572:AAGi5u0j5WT-UkQ0u7eU69qHg3ZCE59DKbc";
 const CHAt_ID = "-1002028151929";
@@ -33,6 +34,9 @@ const Contacts = () => {
 
   return (
     <section className="contact">
+      <div className="admin__card">
+        <Link href={"/"}>Home</Link>/ Contact Us
+      </div>
       <div className="container">
         <div className="contact__start">
           <div className="contact__left">

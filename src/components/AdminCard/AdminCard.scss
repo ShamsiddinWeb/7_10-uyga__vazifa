@@ -1,0 +1,41 @@
+.admin {
+  width: 100%;
+  &__card {
+    text-align: center;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(246, 247, 248, 1);
+    a {
+      color: rgba(51, 160, 255, 1);
+    }
+  }
+  &__title {
+    margin-top: 80px;
+    margin-bottom: 40px;
+    font-size: 40px;
+  }
+  &__text {
+    margin-bottom: 28px;
+  }
+  &__btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0px 10px 40px 0px rgba(248, 161, 112, 0.2);
+    width: 300px;
+    margin-bottom: 100px;
+    border: none;
+    background: rgba(51, 160, 255, 1);
+
+  }
+}
+@media only screen and (max-width: 400px) {
+ .admin {
+  &__btn {
+    width: 100%;
+  }
+ }
+}

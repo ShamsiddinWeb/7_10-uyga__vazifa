@@ -5,11 +5,26 @@ import "./Product.scss";
 import Image from "next/image";
 import { BiCartDownload } from "react-icons/bi";
 import { FaStar } from "react-icons/fa6";
-import { IoMdHeartEmpty } from "react-icons/io";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { toggleLike } from "@/app/lib/wishlist/wishlistSlice";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { IoCartOutline } from "react-icons/io5";
+import { addToCart } from "../../app/lib/carts/cartSlice";
 
 const Product = ({ data }) => {
-  console.log(data);
+  let wishlist = useSelector((state) => state.wishlist.value);
+  console.log(wishlist);
+  const dispatch = useDispatch();
+
+  function toastify() {
+    toast.success("Mahsulot savatga qo'shildi!", {
+      position: "top-right",
+    });
+  }
+  // console.log(toastiyf);
   let productsItem = data?.map((el) => (
     <div key={el.id}>
       <li className="product__list-item">
@@ -25,7 +40,9 @@ const Product = ({ data }) => {
           </Link>
         </div>
         <div className="product__list-card">
-          <h3 className="product__list-title">{el.title}</h3>
+          <Link href={`/product/${el.id}`}>
+            <h3 className="product__list-title">{el.title}</h3>
+          </Link>
           <p className="product__list-text">{el.description}</p>
           <p className="product__list-price">
             ${Math.abs(Math.round((el.price - 12.8) * 100) / 100)}
@@ -37,20 +54,42 @@ const Product = ({ data }) => {
               <FaStar />
               {el.rating.rate}
             </p>
+          </div>
+          <div className="product__card-group">
+            <div
+              className="product__card-heart"
+              onClick={() => dispatch(toggleLike(el))}
+            >
+              {wishlist?.some((e) => e.id === el.id) ? (
+                <FaHeart className="product__card-hearts" />
+              ) : (
+                <FaRegHeart />
+              )}
+            </div>
             <button className="product__card-btn">
               <BiCartDownload />
             </button>
-          </div>
-          <div className="product__card-heart">
-            <IoMdHeartEmpty />
+            <div>
+              <button
+                onClick={() => dispatch(addToCart(el)) && toastify()}
+                className="car"
+              >
+                <IoCartOutline />
+                
+              </button>
+              
+            </div>
           </div>
         </div>
       </li>
+      <ToastContainer />
     </div>
   ));
   let dataList = ["All", "Bags", "Sneakers", "Belt", "Sunglasses"];
   let dataItem = dataList?.map((e, inx) => (
-    <li key={inx} className="products__start-list__item">{e}</li>
+    <li key={inx} className="products__start-list__item">
+      {e}
+    </li>
   ));
   return (
     <section className="product">

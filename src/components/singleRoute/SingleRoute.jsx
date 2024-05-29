@@ -8,65 +8,69 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import "./SingleRoute.scss";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
+import Link from "next/link";
 
-const SingleRoute = ({ data }) => {
+const SingleRoute = ({ data1 }) => {
   let [count, setCount] = useState(1);
   return (
     <div className="singleRoute">
+      <div className="admin__card">
+        <Link href={"/"}>Home</Link>/ {data1.category} / {data1.title}
+      </div>
       <div className="container">
         <div className="singleRoute__start">
           <div className="singleRoute__left">
             <Image
               className="singleRoute__left-img"
-              src={data.image}
+              src={data1.image}
               width={370}
               height={270}
-              alt={data.title}
+              alt={data1.title}
             />
             <div className="singleRoute__left-card">
               <Image
                 className="singleRoute__left-imges"
-                src={data.image}
+                src={data1.image}
                 width={85}
                 height={85}
-                alt={data.title}
+                alt={data1.title}
               />
               <Image
                 className="singleRoute__left-imges"
-                src={data.image}
+                src={data1.image}
                 width={85}
                 height={85}
-                alt={data.title}
+                alt={data1.title}
               />
               <Image
                 className="singleRoute__left-imges"
-                src={data.image}
+                src={data1.image}
                 width={85}
                 height={85}
-                alt={data.title}
+                alt={data1.title}
               />
               <Image
                 className="singleRoute__left-imges"
-                src={data.image}
+                src={data1.image}
                 width={85}
                 height={85}
-                alt={data.title}
+                alt={data1.title}
               />
             </div>
           </div>
           <div className="singleRoute__midway">
-            <h3 className="singleRoute__midway-title">{data.title}</h3>
+            <h3 className="singleRoute__midway-title">{data1.title}</h3>
             <div className="singleRoute__midway-group">
               <Image src={rate} width={76} height={10} alt="rate" />
               <p className="singleRoute__midway-text">
-                {data.rating.count} reviews
+                {data1.rating.count} reviews
               </p>
               <p className="singleRoute__midway-text2">Submit a review</p>
             </div>
             <div className="singleRoute__midway-group singleRoute__midway-border">
-              <p className="singleRoute__midway-text3">${data.price - 15.92}</p>
+              <p className="singleRoute__midway-text3">${data1.price - 15.92}</p>
               <p className="singleRoute__midway-text">
-                <del>${data.price}</del>
+                <del>${data1.price}</del>
               </p>
               <p className="singleRoute__midway-text4">24% Off</p>
             </div>
@@ -76,7 +80,7 @@ const SingleRoute = ({ data }) => {
             </div>
             <div className="singleRoute__midway-card">
               <p className="singleRoute__midway-card__text">Category:</p>
-              <p className="singleRoute__midway-card__text">{data.category}</p>
+              <p className="singleRoute__midway-card__text">{data1.category}</p>
             </div>
             <div className="singleRoute__midway-card">
               <p className="singleRoute__midway-card__text">Free shipping</p>
@@ -116,15 +120,15 @@ const SingleRoute = ({ data }) => {
             <div className="singleRoute__right-card">
               <Image
                 className="singleRoute__left-img"
-                src={data.image}
+                src={data1.image}
                 width={280}
                 height={230}
-                alt={data.title}
+                alt={data1.title}
               />
               <br />
               <Image src={rate} width={76} height={10} alt="rate" />
               <p className="singleRoute__right-text3">
-                {data.price - 15.92} <del>${data.price}</del>
+                {data1.price - 15.92} <del>${data1.price}</del>
               </p>
             </div>
           </div>

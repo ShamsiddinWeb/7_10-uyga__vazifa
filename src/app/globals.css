@@ -88,3 +88,15 @@ button {
  background: rgb(43, 45, 59);
 
 } */
+.admin__card {
+  text-align: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(246, 247, 248, 1);
+  a {
+    color: rgba(51, 160, 255, 1);
+  }
+}
