@@ -16,6 +16,7 @@ const Header = () => {
   const [toogle, setToggle] = useState(false);
   const [search, setSearch] = useState(false);
   let wishlist = useSelector((state) => state.wishlist.value);
+  let carts = useSelector((state) => state.cart.value);
   let data = [
     {
       id: 1,
@@ -117,6 +118,7 @@ const Header = () => {
                   <Link href={"/cart"} className="header__start-card__group">
                     <FiShoppingCart />
                     <p>Cart</p>
+                    <sup className="header__start-card-sups">{carts.length}</sup>
                   </Link>
                   <Link
                     href={"/admin"}

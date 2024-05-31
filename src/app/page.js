@@ -8,12 +8,12 @@ import Service from "@/components/service/Service";
 import { getData } from "@/fetch";
 
 export default async function Home() {
-  let data = await getData("products?limit=8")
+  let data = await getData(`products?limit=${2 * 4}`)
   return (
     <>
       <Hero/>
        <Category/>
-      <Product data ={data}/>
+      <Product data= {data}/>
       <Sneakers/>
       <Service/>
       <News/>

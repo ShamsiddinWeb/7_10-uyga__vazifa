@@ -7,4 +7,3 @@ export async function getData(path){
     
    return res.json()
 }
-// products?limit=8

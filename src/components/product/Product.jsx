@@ -11,12 +11,12 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { toggleLike } from "@/app/lib/wishlist/wishlistSlice";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { IoCartOutline } from "react-icons/io5";
+import { FaRegEye } from "react-icons/fa";
 import { addToCart } from "../../app/lib/carts/cartSlice";
 
 const Product = ({ data }) => {
   let wishlist = useSelector((state) => state.wishlist.value);
-  console.log(wishlist);
+
   const dispatch = useDispatch();
 
   function toastify() {
@@ -66,19 +66,18 @@ const Product = ({ data }) => {
                 <FaRegHeart />
               )}
             </div>
-            <button className="product__card-btn">
-              <BiCartDownload />
-            </button>
             <div>
               <button
+                className="product__card-btn"
                 onClick={() => dispatch(addToCart(el)) && toastify()}
-                className="car"
               >
-                <IoCartOutline />
-                
+                <BiCartDownload />
               </button>
-              
             </div>
+
+            <Link className="product__card-btn" href={`/product/${el.id}`}>
+              <FaRegEye />
+            </Link>
           </div>
         </div>
       </li>
@@ -96,8 +95,105 @@ const Product = ({ data }) => {
       <div className="container">
         <div className="product__wrapper">
           <h2 className="product__title">BEST SELLER</h2>
-          <ul className="product__start-list">{dataItem}</ul>
-          <ul className="product__list">{productsItem}</ul>
+          {productsItem ? (
+            <div>
+              <ul className="product__start-list">{dataItem}</ul>
+              <ul className="product__list">{productsItem}</ul>
+            </div>
+          ) : (
+            <ul className="loading">
+              <li className="loading__list-item">
+                <button className="loading__btn"></button>
+                <div className="loading__img"></div>
+                <h5 className="loading__list-title"></h5>
+                <p className="loadings__list-text"></p>
+                <div className="d">
+                  <p className="b"></p>
+                  <p className="loading__span"></p>
+                </div>
+                <p className="loading-pp"></p>
+                <div className="loading__list-card">
+                  <div> </div>
+                  <button className="loading_list-btn"></button>
+                </div>
+              </li>
+              <li className="loading__list-item">
+                <button className="loading__btn"></button>
+                <div className="loading__img"></div>
+                <h5 className="loading__list-title"></h5>
+                <p className="loadings__list-text"></p>
+                <div className="d">
+                  <p className="b"></p>
+                  <p className="loading__span"></p>
+                </div>
+                <p className="loading-pp"></p>
+                <div className="loading__list-card">
+                  <div> </div>
+                  <button className="loading_list-btn"></button>
+                </div>
+              </li>
+              <li className="loading__list-item">
+                <button className="loading__btn"></button>
+                <div className="loading__img"></div>
+                <h5 className="loading__list-title"></h5>
+                <p className="loadings__list-text"></p>
+                <div className="d">
+                  <p className="b"></p>
+                  <p className="loading__span"></p>
+                </div>
+                <p className="loading-pp"></p>
+                <div className="loading__list-card">
+                  <div> </div>
+                  <button className="loading_list-btn"></button>
+                </div>
+              </li>
+              <li className="loading__list-item">
+                <button className="loading__btn"></button>
+                <div className="loading__img"></div>
+                <h5 className="loading__list-title"></h5>
+                <p className="loadings__list-text"></p>
+                <div className="d">
+                  <p className="b"></p>
+                  <p className="loading__span"></p>
+                </div>
+                <p className="loading-pp"></p>
+                <div className="loading__list-card">
+                  <div> </div>
+                  <button className="loading_list-btn"></button>
+                </div>
+              </li>
+              <li className="loading__list-item">
+                <button className="loading__btn"></button>
+                <div className="loading__img"></div>
+                <h5 className="loading__list-title"></h5>
+                <p className="loadings__list-text"></p>
+                <div className="d">
+                  <p className="b"></p>
+                  <p className="loading__span"></p>
+                </div>
+                <p className="loading-pp"></p>
+                <div className="loading__list-card">
+                  <div> </div>
+                  <button className="loading_list-btn"></button>
+                </div>
+              </li>
+              <li className="loading__list-item">
+                <button className="loading__btn"></button>
+                <div className="loading__img"></div>
+                <h5 className="loading__list-title"></h5>
+                <p className="loadings__list-text"></p>
+                <div className="d">
+                  <p className="b"></p>
+                  <p className="loading__span"></p>
+                </div>
+                <p className="loading-pp"></p>
+                <div className="loading__list-card">
+                  <div> </div>
+                  <button className="loading_list-btn"></button>
+                </div>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
     </section>
