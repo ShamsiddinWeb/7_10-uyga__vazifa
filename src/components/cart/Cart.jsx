@@ -10,11 +10,10 @@ import {
 } from "../../app/lib/carts/cartSlice";
 import Image from "next/image";
 import Link from "next/link";
-// import Payment from "./Payment";
+import Payment from "./Payment";
 
 const Cart = () => {
-
-  let [payment, setPayment] = useState(false)
+  let [payment, setPayment] = useState(false);
 
   let carts = useSelector((state) => state.cart.value);
   console.log(carts);
@@ -59,11 +58,11 @@ const Cart = () => {
     </tr>
   ));
   return (
-    <div>
+    <div className={`admincard ${payment ? "nimadir" : ""}`}>
       <div className="admin__card">
         <Link href={"/"}>Home</Link>/ Cart
       </div>
-      <div className="cart__content container">
+      <div  className="cart__content container">
         {carts.length ? (
           <div>
             <table>
@@ -104,13 +103,13 @@ const Cart = () => {
                   <h4>Total</h4>
                   <span>$ {total}</span>
                 </div>
-                <button className="check" onClick={() => setPayment(!payment)}>Check outt</button>
-
-                {/* <div className={`patments ${payment ? "nimadir" : ""}`}>
-                  <Payment/>
-                </div> */}
-
+                <button className="check" onClick={() => setPayment(!payment)}>
+                  Check outt
+                </button>
               </div>
+            </div>
+            <div className="patments">
+              <Payment />
             </div>
           </div>
         ) : (

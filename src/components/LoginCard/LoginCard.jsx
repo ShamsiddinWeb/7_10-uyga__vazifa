@@ -1,27 +1,61 @@
-import React from "react";
-import "./LoginCard.scss";
-import Link from "next/link";
+"use client";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import "./LoginCard.scss"
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginCard = () => {
+  const [username, setUsername] = useState("mor_2314");
+  const [password, setPassword] = useState("83r5^_");
+  const loginRouter = useRouter();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const api = await fetch("https://fakestoreapi.com/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+
+    if (api.ok) {
+      const apiToken = await api.json();
+      localStorage.setItem("token", apiToken.token);
+      loginRouter.push("/admin");
+    } else {
+      alert("loginni xato kiritdingz");
+    }
+  };
+
   return (
-    <section className="loginCard">
-      <div className="admin__card">
-        <Link href={"/"}>Home</Link>/ Login
-      </div>
+    <form onSubmit={handleSubmit}>
       <div className="container">
-        <form className="loginCard__form" action="">
-          <label htmlFor="nima">
+        <div className="LoginCard__section">
+          <label>
             <p>Username</p>
-            <input type="text" id="nima" required />
+            <input
+              required
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
+              placeholder={`username`}
+            />
           </label>
-          <label htmlFor="nimaa">
-            <p>Password</p>
-            <input type="password" id="nimaa" required/>
-          </label> <br />
-          <button className="loginCard__btn">LOGIN</button>
-        </form>
+          <label>
+            <p>password</p>
+            <input
+              required
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              placeholder={`password`}
+            />
+          </label>
+          <button className="LoginCard_submit">
+            LOGIN
+          </button>
+        </div>
       </div>
-    </section>
+    </form>
   );
 };
 

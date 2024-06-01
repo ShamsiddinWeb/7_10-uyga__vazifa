@@ -278,32 +278,61 @@
   padding: 100px 0;
   color: red;
 }
+.admincard.nimadir {
+  overflow: hidden;
+}
+.admincard.nimadir .payment {
+  display: block;
 
-// .payment {
-//   background-color: #ef0000;
-//   display: none;
-//   position: fixed;
- 
-//   top: 40%;
-//   padding: 40px 60px;
-//   border: 1px solid rgba(255, 255, 255, 1);
+}
+.admincard {
+  position: relative;
+}
+.payment__title {
+  color: #fff;
+  font-size: 25px;
+}
+.xxx {
+  font-size: 30px;
+  color: #fd0000;
+  position: absolute;
+  top: 20px;
+}
+.payment {
+  display: none;
+  text-align: center;
+  padding: 50px;
+  position: fixed;
+  top: 30%;
+  transition: .3s;
+  width: 100%;
+  background-color: rgb(101, 101, 236);
+  input {
+    padding: 8px 20px;
+    margin-top: 20px;
+  }
+  select {
+    padding: 8px 35px;
+    margin-top: 20px;
 
-// }
-// // .patments {
-// //   display: none;
-// // }
-// // .patments.nimadir {
-// //   display: block;
-// // }
-// .patments.nimadir  .payment{
-//   background-color: #46a358;
-//   display: block;
-//   position: absolute;
-// }
-// .patments.nimadir {
-//   overflow: hidden;
-// }
-// .patments.nimadir .cart__content {
-//   overflow: hidden;
-//   background-color: #727272;
-// }
+  }
+  button {
+   margin-top: 50px;
+   padding: 8px 35px;
+   border: none;
+   border-radius: 5px;
+   background-color: blue;
+   color: #fff;
+  }
+  
+}
+.payment__card {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.payment__card-group {
+  flex-direction: column;
+  gap: 20px;
+}
